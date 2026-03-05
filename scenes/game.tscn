@@ -1,0 +1,54 @@
+[gd_scene format=3 uid="uid://b5b3sr2hery7i"]
+
+[ext_resource type="Script" uid="uid://dyu68nthn01h4" path="res://scripts/game_manager.gd" id="1_lnu2h"]
+[ext_resource type="PackedScene" uid="uid://cqty3mk3ro33k" path="res://scenes/crosshair.tscn" id="1_uwrxv"]
+[ext_resource type="PackedScene" uid="uid://ba8mwc4m5o0tm" path="res://scenes/player.tscn" id="1_yqjtg"]
+[ext_resource type="PackedScene" uid="uid://dygu0ci3wo610" path="res://scenes/laser.tscn" id="2_iywne"]
+[ext_resource type="PackedScene" uid="uid://b1kv47e03coxt" path="res://scenes/projectile.tscn" id="2_lbhrr"]
+
+[node name="Game" type="Node2D" unique_id=79875445]
+
+[node name="GameManager" type="Node" parent="." unique_id=1290111560]
+script = ExtResource("1_lnu2h")
+laser_scene = ExtResource("2_iywne")
+projectile_scene = ExtResource("2_lbhrr")
+
+[node name="Arena" type="Node2D" parent="." unique_id=100025067]
+
+[node name="Players" type="Node2D" parent="." unique_id=152005497]
+
+[node name="Player" parent="Players" unique_id=351509032 instance=ExtResource("1_yqjtg")]
+position = Vector2(137, 105)
+
+[node name="Player2" parent="Players" unique_id=315108923 instance=ExtResource("1_yqjtg")]
+modulate = Color(0.37083748, 0.33296067, 0.8847567, 1)
+
+[node name="Projectiles" type="Node2D" parent="." unique_id=450367380]
+
+[node name="Hazards" type="Node2D" parent="." unique_id=212448650]
+
+[node name="Crosshair" parent="." unique_id=577977938 instance=ExtResource("1_uwrxv")]
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=854854460]
+
+[node name="CountdownLabel" type="Label" parent="UI" unique_id=177907824]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TimerLabel" type="Label" parent="UI" unique_id=1217638201]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 23.0
+grow_horizontal = 2

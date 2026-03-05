@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://dctoxyan2lwb2"]
+
+[ext_resource type="PackedScene" uid="uid://dgxxi58wvcfsm" path="res://scenes/high_level_ui.tscn" id="1_0wfyh"]
+[ext_resource type="Script" uid="uid://l74jgyjo42p5" path="res://scripts/multiplayer_spawner.gd" id="2_sugp2"]
+[ext_resource type="PackedScene" uid="uid://ba8mwc4m5o0tm" path="res://scenes/player.tscn" id="3_sugp2"]
+
+[node name="Main" type="Node2D" unique_id=1759482368]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=266323296]
+
+[node name="HighLevelUI" parent="CanvasLayer" unique_id=29006385 instance=ExtResource("1_0wfyh")]
+
+[node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="." unique_id=2114396042]
+_spawnable_scenes = PackedStringArray("uid://ba8mwc4m5o0tm")
+spawn_path = NodePath("..")
+script = ExtResource("2_sugp2")
+network_player = ExtResource("3_sugp2")
+
+[editable path="CanvasLayer/HighLevelUI"]

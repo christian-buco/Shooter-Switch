@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://dygu0ci3wo610"]
+
+[ext_resource type="Script" uid="uid://dl1jwg37f0rei" path="res://scripts/laser.gd" id="1_xmihv"]
+
+[sub_resource type="Gradient" id="Gradient_xmihv"]
+offsets = PackedFloat32Array(0, 0.5351812, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0.7512233, 0.11882373, 2.8878452e-07, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_a7dhc"]
+gradient = SubResource("Gradient_xmihv")
+fill_from = Vector2(0.47863248, 1)
+fill_to = Vector2(0.4871795, 0)
+
+[sub_resource type="Gradient" id="Gradient_5no5p"]
+offsets = PackedFloat32Array(0, 0.53304905, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0.58182764, 0.14047226, 0.09888243, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_xmihv"]
+gradient = SubResource("Gradient_5no5p")
+fill_from = Vector2(0.491453, 1)
+fill_to = Vector2(0.4871795, 0)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xmihv"]
+size = Vector2(4000, 30)
+
+[node name="Laser" type="Node2D" unique_id=588820871]
+script = ExtResource("1_xmihv")
+
+[node name="Warning" type="Sprite2D" parent="." unique_id=1079579337]
+scale = Vector2(40, 0.5)
+texture = SubResource("GradientTexture2D_a7dhc")
+
+[node name="Beam" type="Area2D" parent="." unique_id=90770712]
+
+[node name="Sprite2D" type="Sprite2D" parent="Beam" unique_id=859441330]
+scale = Vector2(40, 0.5)
+texture = SubResource("GradientTexture2D_xmihv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Beam" unique_id=342833852]
+shape = SubResource("RectangleShape2D_xmihv")
+
+[connection signal="body_entered" from="Beam" to="." method="_on_beam_body_entered"]
